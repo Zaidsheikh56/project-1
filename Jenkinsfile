@@ -10,5 +10,13 @@ pipeline {
                 
             }
         }
+        stage('Build-stage') {
+            steps {
+                sh'''
+                sudo yum update -y && sudo yum install maven -y
+                mvn clean install
+                '''
+            }
+        }
     }
 }
