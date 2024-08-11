@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh'''
                 sudo yum update -y && sudo yum install maven -y
-                mvn clean install
+                sudo cd /var/lib/jenkins/workspace/zaid && mvn clean install
                 '''
             }
         }
