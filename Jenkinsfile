@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                sh 'yum install git -y'
+                sh 'apt install git -y'
                 git 'https://github.com/Pritam-Khergade/student-ui.git'
             }
         }
