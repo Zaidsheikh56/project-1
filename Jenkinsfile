@@ -17,8 +17,8 @@ pipeline {
                 sudo systemctl start docker
                 sudo docker pull sonarqube
                 sudo docker network create sonar-network1
-                sudo docker run -d --name sonar-db --network sonar-network1 -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -e POSTGRES_DB=sonar postgres:9.6
-                sudo docker run -d --name sonar -p 9000:9000 --network sonar-network1 -e SONARQUBE_JDBC_URL=jdbc:postgresql://sonar-db:5432/sonar -e SONAR_JDBC_USERNAME=sonar -e SONAR_JDBC_PASSWORD=sonar sonarqube
+                sudo docker run -d --name sonar-db1 --network sonar-network1 -e POSTGRES_USER=sonar -e POSTGRES_PASSWORD=sonar -e POSTGRES_DB=sonar postgres:9.6
+                sudo docker run -d --name sonar1 -p 9000:9000 --network sonar-network1 -e SONARQUBE_JDBC_URL=jdbc:postgresql://sonar-db:5432/sonar -e SONAR_JDBC_USERNAME=sonar -e SONAR_JDBC_PASSWORD=sonar sonarqube
                 mvn sonar:sonar  -Dsonar.host.url=http://172.31.26.49:9090 -Dsonar.login=squ_b3598f14e7ddeb17698d8b91f9842974c84da3e7
                 '''
             }
