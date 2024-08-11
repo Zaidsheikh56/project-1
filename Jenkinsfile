@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                sh 'echo hello world'
+                sh 'echo hello world123'
             }
         }
     }
